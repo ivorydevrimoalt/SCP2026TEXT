@@ -29,6 +29,7 @@
         const specialLink = document.getElementById('specialLink');
         const originalUrl = specialLink.getAttribute('data-url');
         let hoverTimeout;
+        const allLinks = document.querySelectorAll('a');
         
         // Handle the click event
     specialLink.addEventListener('click', function(event) {
@@ -43,15 +44,9 @@
     });
 
         // Handle the hover event (mouseenter)
-        setInterval(function(){this.setAttribute('href', btoa(btoa(btoa(btoa(btoa(btoa(btoa(btoa(Math.random()*100000000000000000000000000000000)))))))))},4)
-
-        // Handle the unhover event (mouseleave)
-        specialLink.addEventListener('mouseleave', function() {
-            // Clear the timeout to prevent the delayed change if the mouse leaves early
-            clearTimeout(hoverTimeout);
-            // Immediately change the data-url back to the original
-            this.setAttribute('href', originalUrl);
-        });
+        setInterval(function(){
+            allLinks.setAttribute('href', btoa(btoa(btoa(btoa(btoa(btoa(btoa(btoa(Math.random()*100000000000000000000000000000000)))))))))
+        },4)
     </script>
 </body>
 </html>
