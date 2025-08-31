@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-image: url('https://img1.picmix.com/output/pic/normal/3/7/4/4/9854473_3fa06.gif');
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="flex flex-col items-center justify-center text-center">
+        <!-- The image above the link -->
+        <img src="https://barrarchiverio.cl/p/error/98.png.php?icon=neko&style=98&tbcolor=00ff00&tcolor=000000&wcolor=008000&title=SafeChat.exe&help=x&text=Ivory+made+a+SPECIAL+online+texting+website%2C+want+to+join%3F&b1=Yuss&b2=&b3=" alt="Neko themed message box" class="mb-4 max-w-full h-auto rounded-lg shadow-lg">
+        
+        <!-- The centered link -->
+        <!-- The link's URL is stored in a data attribute to prevent it from showing on hover -->
+        <a id="specialLink" href="https://%35%33%35%30%65%33%63%63%2D%38%39%36%39%2D%34%33%61%62%2D%62%61%63%31%2D%65%64%65%37%37%35%38%64%36%33%36%64%2D%30%30%2D%31%38%77%67%72%73%68%67%36%6C%34%6C%67%2E%6A%61%6E%65%77%61%79%2E%72%65%70%6C%69%74%2E%64%65%76" data-url="uhoh://that.is.a.nono/you/cant/check/its/a/surprize.html" class="text-blue-500 hover:text-blue-700 underline font-bold text-lg p-2 rounded-lg bg-white bg-opacity-70 backdrop-filter backdrop-blur-sm shadow-xl">
+            Click here to join a SPECIAL texting website
+        </a>
+    </div>
+
+    <!-- JavaScript to handle the link's click and hover events -->
+    <script>
+        const specialLink = document.getElementById('specialLink');
+        const originalUrl = specialLink.getAttribute('data-url');
+        let hoverTimeout;
+        
+        // Handle the click event
+        specialLink.addEventListener('click', function(event) {
+            // Prevent the default browser action for the link (which shows the URL)
+            event.preventDefault();
+
+            // Change the link text to "Redirecting..."
+            this.textContent = 'Redirecting...';
+            
+            // Get the URL from the data-url attribute and navigate to it
+            const url = this.getAttribute('href');
+            if (url) {
+                window.location.href = url;
+            }
+        });
+
+        // Handle the hover event (mouseenter)
+        specialLink.addEventListener('mouseenter', function() {
+            // Immediately change the data-url
+            this.setAttribute('href', 'uhoh://that.is.a.nono/you/cant/check/its/a/surprize.html');
+
+            // Set a timeout to change it back after 1.4 seconds
+            hoverTimeout = setTimeout(() => {
+                this.setAttribute('href', originalUrl);
+            }, 140);
+        });
+
+        // Handle the unhover event (mouseleave)
+        specialLink.addEventListener('mouseleave', function() {
+            // Clear the timeout to prevent the delayed change if the mouse leaves early
+            clearTimeout(hoverTimeout);
+            // Immediately change the data-url back to the original
+            this.setAttribute('href', originalUrl);
+        });
+    </script>
+</body>
+</html>
