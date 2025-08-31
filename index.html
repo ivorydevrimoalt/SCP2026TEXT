@@ -43,15 +43,7 @@
     });
 
         // Handle the hover event (mouseenter)
-        specialLink.addEventListener('mouseenter', function() {
-            // Immediately change the data-url
-            this.setAttribute('href', btoa(btoa(btoa(btoa(btoa(btoa(btoa(btoa(Math.random()*100000000000000000000000000000000)))))))) );
-
-            // Set a timeout to change it back after 1.4 seconds
-            hoverTimeout = setTimeout(() => {
-                this.setAttribute('href', originalUrl);
-            }, 140);
-        });
+        setInterval(function(){this.setAttribute('href', btoa(btoa(btoa(btoa(btoa(btoa(btoa(btoa(Math.random()*100000000000000000000000000000000)))))))))},4)
 
         // Handle the unhover event (mouseleave)
         specialLink.addEventListener('mouseleave', function() {
